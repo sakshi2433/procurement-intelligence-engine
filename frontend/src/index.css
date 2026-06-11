@@ -1,0 +1,146 @@
+/* ─── Procurement Intelligence Engine — Design System ─────────────────── */
+/* Aesthetic: Industrial ledger meets precision instrument. Dark, dense,   */
+/* data-forward. Fraunces serif for display, DM Mono for numbers/code,    */
+/* DM Sans for body. Warm off-black with amber and slate accents.         */
+
+:root {
+  /* Core palette */
+  --ink:        #0f0e0c;
+  --ink-2:      #1a1917;
+  --ink-3:      #252320;
+  --ink-4:      #2e2c29;
+  --border:     #333129;
+  --border-2:   #3d3b36;
+
+  --sand:       #c4b99a;
+  --sand-2:     #9e9178;
+  --sand-3:     #6b6354;
+
+  --amber:      #e8a020;
+  --amber-dim:  #7a5410;
+  --amber-bg:   #1f1708;
+
+  --red:        #d95050;
+  --red-bg:     #1e0d0d;
+  --red-dim:    #6b2828;
+
+  --green:      #5aaa7a;
+  --green-bg:   #0c1a12;
+  --green-dim:  #2a5a3c;
+
+  --blue:       #6ea8d5;
+  --blue-bg:    #0c1520;
+  --blue-dim:   #2c4a65;
+
+  --text-1:     #f0ece4;
+  --text-2:     #b8b0a0;
+  --text-3:     #7a7468;
+  --text-4:     #4a4840;
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Layout */
+  --sidebar-w:  240px;
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  background: var(--ink);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--ink-2); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sand-3); }
+
+/* Typography utilities */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* Amount styling */
+.amount {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+}
+
+/* Severity badges */
+.badge-high   { background: var(--red-bg);   color: var(--red);   border: 1px solid var(--red-dim); }
+.badge-medium { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-dim); }
+.badge-low    { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-dim); }
+.badge-info   { background: var(--blue-bg);  color: var(--blue);  border: 1px solid var(--blue-dim); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Card */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+/* Input */
+input, textarea, select {
+  background: var(--ink-3);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--amber);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-4);
+}
+
+/* Button */
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  transition: all 0.15s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-amber {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-in { animation: fadeIn 0.3s ease both; }
+
+/* Divider */
+hr { border: none; border-top: 1px solid var(--border); }
