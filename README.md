@@ -128,8 +128,3 @@ procurement-engine/
 | Spend concentration risk | Herfindahl index on vendor spend |
 | Odoo ERP integration | XML-RPC with auto-sync |
 
-## Interview Talking Points
-
-- **Why FAISS over pgvector?** FAISS is faster for pure ANN search; pgvector wins when you need SQL joins on metadata. This project uses FAISS for query speed, PostgreSQL for structured analytics.
-- **Why Z-score AND IQR?** Z-score assumes normal distribution; IQR is robust to skew. Invoices are often skewed (few huge invoices), so IQR catches what Z-score misses.
-- **Scaling to 50,000 POs**: Batch embed on ingest, partition FAISS index by vendor category, add Redis caching for frequent queries, async Celery for anomaly scans.
